@@ -6,8 +6,12 @@
 // Time taken:
 // Known bugs:
 
+#include "InputHandler.h"
+
 int main()
 {
+	InputHandler input;
+	input.handleInput();
 
 	return 0;
 	//return 1;

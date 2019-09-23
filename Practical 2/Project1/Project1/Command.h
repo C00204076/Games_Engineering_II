@@ -5,3 +5,32 @@
 // Finished at
 // Time taken:
 // Known bugs:
+
+#ifndef COMMAND_H
+#define COMMAND_H
+
+#include <iostream>
+#include <list>
+
+#include "SFML/Graphics.hpp"
+
+//
+class Command
+{
+public:
+	virtual ~Command()
+	{
+
+	}
+
+	virtual void excute() = 0;
+
+protected:
+	Command()
+	{
+
+	}
+};
+
+#endif // !COMMAND_H
+
