@@ -23,7 +23,7 @@ public:
 
 	}
 
-	virtual void excute() = 0;
+	virtual void execute() = 0;
 
 protected:
 	Command()

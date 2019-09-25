@@ -6,13 +6,13 @@
 // Time taken:
 // Known bugs:
 
-#include "InputHandler.h"
+#include "Game.h"
 
 int main()
 {
-	InputHandler input;
-	input.handleInput();
+	Game game;
+	game.run();
 
-	return 0;
+	//return 0;
 	//return 1;
 }
