@@ -24,6 +24,7 @@ public:
 	}
 
 	virtual void execute() = 0;
+	virtual void execute(Command& c) = 0;
 
 protected:
 	Command()

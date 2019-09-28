@@ -142,10 +142,16 @@
     <ClCompile Include="MarcoCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BCommand.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="MarcoCommand.h" />
+    <ClInclude Include="QCommand.h" />
+    <ClInclude Include="RCommand.h" />
+    <ClInclude Include="TCommand.h" />
+    <ClInclude Include="UCommand.h" />
+    <ClInclude Include="YCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
