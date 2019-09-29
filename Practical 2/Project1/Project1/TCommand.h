@@ -15,9 +15,9 @@
 class TCommand : public Command
 {
 public:
-	virtual void execute()
+	virtual void execute(Command* c, Game* game)
 	{
-		//t();
+		c->t(game);
 	}
 };
 

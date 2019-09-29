@@ -18,7 +18,7 @@ public:
 	virtual ~MarcoCommand();
 	virtual void add(Command*);
 	virtual void remove(Command*);
-	virtual void execute();
+	virtual void execute(Game *game);
 
 private:
 	std::list<Command*>* m_commands;

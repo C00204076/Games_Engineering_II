@@ -14,9 +14,9 @@
 class UCommand : public Command
 {
 public:
-	virtual void execute()
+	virtual void execute(Command* c, Game* game)
 	{
-		//u();
+		c->u(game);
 	}
 };
 

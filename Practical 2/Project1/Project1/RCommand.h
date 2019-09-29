@@ -14,9 +14,9 @@
 class RCommand : public Command
 {
 public:
-	virtual void execute()
+	virtual void execute(Command* c, Game* game)
 	{
-		//r();
+		c->r(game);
 	}
 };
 

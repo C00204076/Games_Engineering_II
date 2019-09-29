@@ -12,6 +12,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "InputHandler.h"
+#include "MarcoCommand.h"
 
 #include <iostream>
 #include <string>
@@ -26,6 +27,8 @@ public:
 
 	void run();
 
+	void setString(char c);
+
 private:
 	void loadTextures();
 	void initialise();
@@ -39,7 +42,10 @@ private:
 	sf::RenderWindow m_window; //SFML window for game
 	bool is_running;
 
-	InputHandler input;
+	InputHandler *input;
+	MarcoCommand* m_macro;
+
+	std::string m_word;
 };
 
 #endif // !GAME_H

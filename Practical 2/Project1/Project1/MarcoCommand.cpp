@@ -33,15 +33,18 @@ void MarcoCommand::remove(Command* c)
 }
 
 //
-void MarcoCommand::execute()
+void MarcoCommand::execute(Game *game)
 {
-	std::list<Command*>::iterator i;
+	std::list<Command*>::iterator it = m_commands->begin();
+	
 
 	//
-	for (i = m_commands->begin(); i != m_commands->end(); ++i)
+	for (; it != m_commands->end(); ++it)
 	{
-		//Command* c;
-		//c->execute();
+		std::advance(it, 1);
+		//Command* c = it;
+		//it->execute(this, game);
+
 	}
 }
 

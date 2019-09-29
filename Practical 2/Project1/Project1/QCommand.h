@@ -14,9 +14,9 @@
 class QCommand : public Command
 {
 public:
-	virtual void execute()
+	virtual void execute(Command* c, Game* game)
 	{
-		//q();
+		c->q(game);
 	}
 };
 

@@ -37,7 +37,7 @@ void Game::initialise()
 {
 	loadTextures();
 
-	
+	m_word = "";
 }
 
 /// <summary>
@@ -141,9 +141,10 @@ void Game::update(sf::Time deltaTime)
 		m_window.close();
 	}
 
-	
+	m_macro->add(input->handleInput());
+	m_macro->execute(this);
 
-	input.handleInput();
+	std::cout << m_word << std::endl;
 }
 
 /// <summary>
@@ -153,8 +154,12 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black); //Set background to black
 
-	
-
 	m_window.display();
 }
 
+
+//
+void Game::setString(char c)
+{
+	m_word += c;
+}

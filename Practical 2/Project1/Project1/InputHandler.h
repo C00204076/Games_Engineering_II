@@ -13,21 +13,30 @@
 #include <conio.h>
 
 #include "Command.h"
+#include "Game.h"
+
 
 //
 class InputHandler
 {
 public:
-	void handleInput();
+	Command* handleInput();
 
 private:
-	Command* m_qBtn;
-	Command* m_uBtn;
-	Command* m_bBtn;
-	Command* m_rBtn;
-	Command* m_tBtn;
-	Command* m_yBtn;
+	QCommand* m_qBtn;
+	UCommand* m_uBtn;
+	BCommand* m_bBtn;
+	RCommand* m_rBtn;
+	TCommand* m_tBtn;
+	YCommand* m_yBtn;
 };
 
+#include "Game.h"
+#include "QCommand.h"
+#include "UCommand.h"
+#include "BCommand.h"
+#include "RCommand.h"
+#include "TCommand.h"
+#include "YCommand.h"
 #endif // !INPUTHANDLER_H
 

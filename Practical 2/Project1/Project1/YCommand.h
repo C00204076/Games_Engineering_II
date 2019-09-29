@@ -15,9 +15,9 @@
 class YCommand : public Command
 {
 public:
-	virtual void execute(Command& c)
+	virtual void execute(Command* c, Game * game)
 	{
-		c.y();
+		c->y(game);
 	}
 };
 

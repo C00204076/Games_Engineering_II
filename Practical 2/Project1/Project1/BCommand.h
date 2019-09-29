@@ -14,9 +14,9 @@
 class BCommand : public Command
 {
 public:
-	virtual void execute()
+	virtual void execute(Command* c, Game* game)
 	{
-		//b();
+		c->b(game);
 	}
 };
 

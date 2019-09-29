@@ -8,42 +8,42 @@
 
 #include "InputHandler.h"
 
-void InputHandler::handleInput()
+Command* InputHandler::handleInput()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
-		//m_qBtn->excute();
-		std::cout << "Q" << std::endl;
+		return m_qBtn;
+		//std::cout << "Q" << std::endl;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U))
 	{
-		//m_uBtn->excute();
-		std::cout << "U" << std::endl;
+		return m_uBtn;
+		//std::cout << "U" << std::endl;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
 	{
-		//m_bBtn->excute();
-		std::cout << "B" << std::endl;
+		return m_bBtn;
+		//std::cout << "B" << std::endl;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
-		//m_rBtn->excute();
-		std::cout << "R" << std::endl;
+		return m_rBtn;
+		//std::cout << "R" << std::endl;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
 	{
-		//m_tBtn->excute();
-		std::cout << "T" << std::endl;
+		return m_tBtn;
+		//std::cout << "T" << std::endl;
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
 	{
-		//m_yBtn->excute();
-		std::cout << "Y" << std::endl;
+		return m_yBtn;
+		//std::cout << "Y" << std::endl;
 	}
 
 }
