@@ -68,16 +68,18 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 //
 void Game::loadTexture()
 {
-	SDL_Texture* image = IMG_LoadTexture(m_renderer, "assets\\grid.png");
+	SDL_Surface* tempSur = IMG_Load("assets\\grid.png");
+	m_image = SDL_CreateTextureFromSurface(m_renderer, tempSur);
+	SDL_FreeSurface(tempSur);
 
-	if (image == nullptr)
+	if (m_image == nullptr)
 	{
 		std::cout << "IMG_Load: " << IMG_GetError() << "\n";
 	}
 	else
 	{
 
-		m_animatedSprite = AnimatedSprite(image);
+		m_animatedSprite = AnimatedSprite(m_image);
 
 		//
 		m_frames[0].x = 3;
@@ -177,6 +179,7 @@ void Game::render()
 	SDL_RenderClear(m_renderer);
 	// Stuff to render goes here
 
+	SDL_RenderCopy(m_renderer, m_image, NULL, NULL);
 
 	SDL_RenderPresent(m_renderer);
 }

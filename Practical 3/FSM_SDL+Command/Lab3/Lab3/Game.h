@@ -40,6 +40,7 @@ private:
 	bool m_isRunning;
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
+	SDL_Texture* m_image;
 
 	SDL_Rect m_frames[6];
 	AnimatedSprite m_animatedSprite;

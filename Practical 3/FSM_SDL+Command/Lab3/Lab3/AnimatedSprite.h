@@ -32,6 +32,7 @@ private:
 	Clock m_clock;
 	Time m_time;
 	std::vector<SDL_Rect> m_frames;
+	SDL_Texture* m_texture;
 	int m_current_frame;
 
 };
