@@ -6,7 +6,10 @@
 // Time taken:
 // Known bugs:
 
-int main()
+int main(void*)
 {
 
+
+
+	return 0;
 };
