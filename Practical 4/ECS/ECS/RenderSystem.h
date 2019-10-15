@@ -9,9 +9,10 @@
 #ifndef RENDERSYSTEM_H
 #define RENDERSYSTEM_H
 
+#include "System.h"
 #include "PositionComponent.h"
 
-class RenderSystem
+class RenderSystem : public System
 {
 public: 
 	RenderSystem()
@@ -21,7 +22,7 @@ public:
 
 	~RenderSystem()
 	{
-
+		//delete this;
 	}
 
 private:

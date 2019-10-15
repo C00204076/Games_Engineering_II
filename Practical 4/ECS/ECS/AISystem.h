@@ -9,10 +9,11 @@
 #ifndef AISYSTEM_H
 #define AISYSTEM_H
 
+#include "System.h"
 #include "HealthComponent.h"
 #include "PositionComponent.h"
 
-class AISystem
+class AISystem : public System
 {
 public:
 	AISystem()
@@ -22,7 +23,7 @@ public:
 
 	~AISystem()
 	{
-
+		//delete this;
 	}
 
 private:

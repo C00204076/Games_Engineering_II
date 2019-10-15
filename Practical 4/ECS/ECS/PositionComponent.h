@@ -22,7 +22,7 @@ public:
 
 	~PositionComponent()
 	{
-
+		//delete this;
 	}
 
 	void setPosition(float x, float y)

@@ -9,10 +9,11 @@
 #ifndef CONTROLSYSTEM_H
 #define CONTROLSYSTEM_H
 
+#include "System.h"
 #include "PositionComponent.h"
 #include "ControlComponent.h"
 
-class ControlSystem
+class ControlSystem : public System
 {
 public:
 	ControlSystem()
@@ -22,7 +23,7 @@ public:
 
 	~ControlSystem()
 	{
-
+		//delete this;
 	}
 
 private:

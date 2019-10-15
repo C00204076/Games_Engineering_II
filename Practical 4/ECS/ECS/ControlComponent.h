@@ -21,7 +21,7 @@ public:
 
 	~ControlComponent()
 	{
-
+		//delete this;
 	}
 
 private:

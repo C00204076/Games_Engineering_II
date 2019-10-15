@@ -20,7 +20,7 @@ public:
 
 	~Component()
 	{
-
+		//delete this;
 	};
 
 private:
