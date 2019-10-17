@@ -28,7 +28,32 @@ public:
 
 	void update()
 	{
+		SDL_Event m_event;
+		SDL_PollEvent(&m_event);
 
+		switch (m_event.type == SDL_KEYDOWN)
+		{
+			// Left key pressed 
+			if (m_event.key.keysym.sym == SDLK_LEFT)
+			{
+				
+			}
+			//  Right key pressed
+			if (m_event.key.keysym.sym == SDLK_RIGHT)
+			{
+				
+			}
+			// Up key pressed
+			if (m_event.key.keysym.sym == SDLK_UP)
+			{
+				
+			}
+			//
+			if(m_event.key.keysym.sym === SDLK_DOWN)
+			{
+				
+			}
+		}
 	}
 
 private:
