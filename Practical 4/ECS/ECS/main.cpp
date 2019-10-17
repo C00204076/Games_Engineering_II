@@ -74,11 +74,10 @@ int main(void*)
 	//
 	while (true)
 	{
-		/*
+		//
 		m_as.update();
 		m_rs.update();
 		m_cs.update();
-		*/
 	}
 
 	return 0;

@@ -6,7 +6,7 @@ AnimatedSprite::AnimatedSprite()
 }
 
 AnimatedSprite::AnimatedSprite(const SDL_Texture* t) :
-	m_texture(t),
+	//m_texture(t),
 	m_current_frame(0),
 	m_time(seconds(0.5f))
 {
@@ -15,7 +15,7 @@ AnimatedSprite::AnimatedSprite(const SDL_Texture* t) :
 
 
 AnimatedSprite::AnimatedSprite(const SDL_Texture* t, const SDL_Rect& rect) :
-	m_texture(t), 
+	//m_texture(t), 
 	m_current_frame(0),
 	m_time(seconds(0.5f))
 {

@@ -31,6 +31,11 @@ public:
 		m_entities.push_back(entity);
 	}
 
+	virtual void update()
+	{
+		std::cout << "Updating System!" << std::endl;
+	}
+
 private:
 	std::vector<Entity*> m_entities;
 };

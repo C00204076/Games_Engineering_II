@@ -25,6 +25,11 @@ public:
 		//delete this;
 	}
 
+	void update()
+	{
+
+	}
+
 private:
 
 };
