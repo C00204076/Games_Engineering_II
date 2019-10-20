@@ -67,7 +67,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 //
 void Game::loadTexture()
 {
-	SDL_Surface* playerSurface = IMG_Load("ASSETS/Human.png");
+	SDL_Surface* playerSurface = IMG_Load("/ECS/ASSETS/Human.png");
 	SDL_Surface* alienSurface = IMG_Load("ASSETS/Alien.png");
 	SDL_Surface* dogSurface = IMG_Load("ASSETS/Dog.png");
 	SDL_Surface* catSurface = IMG_Load("ASSETS/Cat.png");
@@ -109,10 +109,26 @@ void Game::setECS()
 	HealthComponent* m_doghc = new HealthComponent(15, "Dog", 0);
 	HealthComponent* m_cathc = new HealthComponent(5, "Cat", 0);
 	//
-	PositionComponent* m_playerpc = new PositionComponent(m_playerRect, m_playerText, 1);
-	PositionComponent* m_alienpc = new PositionComponent(m_alienRect, m_alienText, 1);
-	PositionComponent* m_dogpc = new PositionComponent(m_dogRect, m_dogText, 1);
-	PositionComponent* m_catpc = new PositionComponent(m_catRect, m_catText, 1);
+	PositionComponent* m_playerpc = new PositionComponent(m_playerRect, 1);
+	m_playerpc->setX(m_playerRect->x);
+	m_playerpc->setY(m_playerRect->y);
+	m_playerpc->setW(m_playerRect->w);
+	m_playerpc->setH(m_playerRect->h);
+	PositionComponent* m_alienpc = new PositionComponent(m_alienRect, 1);
+	m_alienpc->setX(m_alienRect->x);
+	m_alienpc->setY(m_alienRect->y);
+	m_alienpc->setW(m_alienRect->w);
+	m_alienpc->setH(m_alienRect->h);
+	PositionComponent* m_dogpc = new PositionComponent(m_dogRect, 1);
+	m_dogpc->setX(m_dogRect->x);
+	m_dogpc->setY(m_dogRect->y);
+	m_dogpc->setW(m_dogRect->w);
+	m_dogpc->setH(m_dogRect->h);
+	PositionComponent* m_catpc = new PositionComponent(m_catRect, 1);
+	m_catpc->setX(m_catRect->x);
+	m_catpc->setY(m_catRect->y);
+	m_catpc->setW(m_catRect->w);
+	m_catpc->setH(m_catRect->h);
 	//
 	ControlComponent* m_cc = new ControlComponent(2);
 

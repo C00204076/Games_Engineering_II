@@ -34,7 +34,7 @@ public:
 				m_entities[i]->getComponents<PositionComponent>(1)->getTexture(), 
 				NULL, 
 				m_entities[i]->getComponents<PositionComponent>(1)->getRect());
-
+				
 		}
 	}
 

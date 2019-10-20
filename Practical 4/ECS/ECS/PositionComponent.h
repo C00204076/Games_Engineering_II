@@ -15,9 +15,8 @@
 class PositionComponent : public BaseComponent<PositionComponent>
 {
 public:
-	PositionComponent(SDL_Rect* rect, SDL_Texture* texture, int id) :
+	PositionComponent(SDL_Rect* rect, int id) :
 		m_rect(rect),
-		m_texture(texture),
 		BaseComponent<PositionComponent>(id)
 	{
 
