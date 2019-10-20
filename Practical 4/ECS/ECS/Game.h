@@ -12,8 +12,20 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include "Entity.h"
+//
+#include "HealthComponent.h"
+#include "PositionComponent.h"
+#include "ControlComponent.h"
+//
+#include "AISystem.h"
+#include "RenderSystem.h"
+#include "ControlSystem.h"
+#include "HealthSystem.h"
+
 #include <stdio.h>
 #include <iostream>
+#include <string_view>
 
 class Player;
 
@@ -54,10 +66,7 @@ private:
 	Entity *m_alien;
 	Entity *m_dog;
 	Entity *m_cat;
-	//
-	HealthComponent m_hc = HealthComponent(100);
-	PositionComponent m_pc;
-	ControlComponent m_cc;
+
 	//
 	AISystem m_as;
 	RenderSystem m_rs;
@@ -65,14 +74,5 @@ private:
 	HealthSystem m_hs;
 
 };
-#include "Entity.h"
-//
-#include "HealthComponent.h"
-#include "PositionComponent.h"
-#include "ControlComponent.h"
-//
-#include "AISystem.h"
-#include "RenderSystem.h"
-#include "ControlSystem.h"
-#include "HealthSystem.h"
+
 #endif // !GAME_H

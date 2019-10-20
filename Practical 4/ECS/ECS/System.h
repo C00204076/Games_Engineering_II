@@ -16,27 +16,12 @@
 class System
 {
 public:
-	System()
-	{
-
-	}
-
-	~System()
-	{
-		//delete this;
-	}
-
 	void addEntity(Entity* entity)
 	{
 		m_entities.push_back(entity);
 	}
 
-	virtual void update()
-	{
-		std::cout << "Updating System!" << std::endl;
-	}
-
-private:
+protected:
 	std::vector<Entity*> m_entities;
 };
 

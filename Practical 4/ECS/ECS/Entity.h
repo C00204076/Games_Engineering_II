@@ -9,38 +9,49 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <string>
 #include <iostream>
 #include <vector>
+#include <vector>
+#include <unordered_map>
+
+#include <SDL.h>
+#include <SDL_image.h>
 
 class Component;
 
 //
 class Entity
 {
-	int m_id;
 public:
 	Entity()
 	{
 
 	};
+
 	//
-	void addComponent(Component c)
+	template <class T>
+	void addComponent(Component *c, int type)
 	{
-		m_components.push_back(c);
+		m_components[type] = c;
 	}
+
 	//
-	void removeComponent(Component c)
+	/*void removeComponent(Component c)
 	{
 
-	}
+	}*/
+
 	//
-	std::vector<Component> getComponents()
+	template <class T>
+	T* getComponents(int type)
 	{
-		return m_components;
+		return static_cast<T*>(m_components[type]);
 	}
 
 private:
-	std::vector<Component> m_components;
+	std::unordered_map<int, Component*> m_components;
+	int m_id;
 };
 
 #include "Component.h"

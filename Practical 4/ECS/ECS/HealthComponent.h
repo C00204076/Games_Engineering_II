@@ -12,11 +12,13 @@
 #include "Component.h"
 
 //
-class HealthComponent : public Component
+class HealthComponent : public BaseComponent<HealthComponent>
 {
 public:
-	HealthComponent(int health) :
-		m_health(health)
+	HealthComponent(int health, std::string name, int id) :
+		m_health(health),
+		m_name(name),
+		BaseComponent<HealthComponent>(id)
 	{
 
 	}
@@ -31,8 +33,19 @@ public:
 		this->m_health = health;
 	}
 
+	std::string getName()
+	{
+		return m_name;
+	}
+
+	void setName(std::string name)
+	{
+		this->m_name = name;
+	}
+
 private:
 	int m_health;
+	std::string m_name;
 };
 
 #endif // !HEALTHCOMPONENT_H

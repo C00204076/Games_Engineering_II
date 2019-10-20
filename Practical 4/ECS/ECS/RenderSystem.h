@@ -25,9 +25,17 @@ public:
 		//delete this;
 	}
 
-	void update()
+	void render(SDL_Renderer* renderer)
 	{
+		for (int i = 0; i < m_entities.size(); i++)
+		{
 
+			SDL_RenderCopy(renderer, 
+				m_entities[i]->getComponents<PositionComponent>(1)->getTexture(), 
+				NULL, 
+				m_entities[i]->getComponents<PositionComponent>(1)->getRect());
+
+		}
 	}
 
 private:

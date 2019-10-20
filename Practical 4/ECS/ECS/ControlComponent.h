@@ -11,10 +11,11 @@
 
 #include "Component.h"
 
-class ControlComponent : public Component
+class ControlComponent : public BaseComponent<ControlComponent>
 {
 public:
-	ControlComponent()
+	ControlComponent(int id) :
+		BaseComponent<ControlComponent>(id)
 	{
 
 	}
@@ -23,6 +24,8 @@ public:
 	{
 		//delete this;
 	}
+
+	
 
 private:
 

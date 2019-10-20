@@ -26,34 +26,59 @@ public:
 		//delete this;
 	}
 
-	void update()
+	void update(int id)
 	{
 		SDL_Event m_event;
 		SDL_PollEvent(&m_event);
 
-		switch (m_event.type == SDL_KEYDOWN)
+		isButtonPressed(id, m_event);
+
+	}
+
+	void isButtonPressed(int id, SDL_Event e)
+	{
+
+		for (int i = 0; i < m_entities.size(); i++)
 		{
-			// Left key pressed 
-			if (m_event.key.keysym.sym == SDLK_LEFT)
+			if (m_entities[i]->getComponents<ControlComponent>(2)->m_entityID == id)
 			{
-				
-			}
-			//  Right key pressed
-			if (m_event.key.keysym.sym == SDLK_RIGHT)
-			{
-				
-			}
-			// Up key pressed
-			if (m_event.key.keysym.sym == SDLK_UP)
-			{
-				
-			}
-			//
-			if(m_event.key.keysym.sym === SDLK_DOWN)
-			{
-				
-			}
-		}
+				if (e.type == SDL_KEYDOWN)
+				{
+					// Left key pressed 
+					if (e.key.keysym.sym == SDLK_LEFT)
+					{
+						m_entities[i]->getComponents<PositionComponent>(1)->setX(m_entities[i]->getComponents<PositionComponent>(1)-> getX() - 3);
+						std::cout << "Left" << std::endl;
+					}// End if
+
+					//  Right key pressed
+					if (e.key.keysym.sym == SDLK_RIGHT)
+					{
+						m_entities[i]->getComponents<PositionComponent>(1)->setX(m_entities[i]->getComponents<PositionComponent>(1)->getX() + 3);
+						std::cout << "Right" << std::endl;
+					}// End if
+
+					// Up key pressed
+					if (e.key.keysym.sym == SDLK_UP)
+					{
+						m_entities[i]->getComponents<PositionComponent>(1)->setY(m_entities[i]->getComponents<PositionComponent>(1)->getY() - 3);
+						std::cout << "Up" << std::endl;
+					}// End if
+
+					//
+					if (e.key.keysym.sym == SDLK_DOWN)
+					{
+						m_entities[i]->getComponents<PositionComponent>(1)->setY(m_entities[i]->getComponents<PositionComponent>(1)->getY() + 3);
+						std::cout << "Down" << std::endl;
+					}// End if
+
+				}// End if
+			
+			}//End if
+		
+		}// End for
+
+		
 	}
 
 private:
