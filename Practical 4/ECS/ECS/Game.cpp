@@ -67,7 +67,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 //
 void Game::loadTexture()
 {
-	SDL_Surface* playerSurface = IMG_Load("/ECS/ASSETS/Human.png");
+	SDL_Surface* playerSurface = IMG_Load("ASSETS/Human.png");
 	SDL_Surface* alienSurface = IMG_Load("ASSETS/Alien.png");
 	SDL_Surface* dogSurface = IMG_Load("ASSETS/Dog.png");
 	SDL_Surface* catSurface = IMG_Load("ASSETS/Cat.png");

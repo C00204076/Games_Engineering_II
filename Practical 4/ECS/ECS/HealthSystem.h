@@ -29,8 +29,8 @@ public:
 	{
 		for (int i = 0; i < m_entities.size(); i++)
 		{
-			//std::cout << m_entities[i]->getComponents<HealthComponent>(0)->getName() << std::endl;
-			//std::cout << m_entities[i]->getComponents<HealthComponent>(0)->getHealth() << std::endl;
+			std::cout << m_entities[i]->getComponents<HealthComponent>(0)->getName() << std::endl;
+			std::cout << m_entities[i]->getComponents<HealthComponent>(0)->getHealth() << std::endl;
 		}
 	}
 
