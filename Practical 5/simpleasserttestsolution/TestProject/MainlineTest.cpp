@@ -6,37 +6,43 @@
 
 using namespace std;
 
-int main()
+/*int main()
 {
 	Production p;
 
-	int a = 10;
-	vector<int> m_list;
 
-	m_list.push_back(1);
-	m_list.push_back(2);
-	m_list.push_back(3);
-	m_list.push_back(4);
-	m_list.push_back(5);
-	m_list.push_back(6);
+	const int m_min = 1;
+	const int m_max = 46;
+	const int m_maxSize = 6;
 
+	std::vector<int> m_list = { 1, 2, 3, 4, 5, 6 };
+	std::vector<int> m_invalid = { 'a', 2, 'c', 3, 'e' };
+	std::vector<int> m_empty = {};
+	std::vector<int> m_smallRange = { 1 };
+	std::vector<int> m_largeRange = { 1, 2, 3, 4, 5, 6, 7 };
 
-	/*cout << p.someMethod(a) << endl;
-	assert(p.someMethod(a) == 0);
-	assert(p.someMethod(a) == 1);*/
+	// List size test
+	assert( (p.maxNumbers(m_list, m_maxSize)) );
+	assert( (!p.maxNumbers(m_invalid, m_maxSize)) );
+	assert( (!p.maxNumbers(m_empty, m_maxSize)) );
+	assert( (!p.maxNumbers(m_smallRange, m_maxSize)) );
+	assert( (!p.maxNumbers(m_largeRange, m_maxSize)) );
 
-	assert(m_list.size() > 6);
-	for (int i = 0; i < m_list.size(); i++)//int i = 0; i < m_list.size(); i++)
-	{
-		assert(m_list[i] < 1);
-		assert(m_list[i] > 46);
+	// Repeated numbers test
+	assert( (p.repeatedNumbers(m_list)) );
+	assert( (!p.repeatedNumbers(m_invalid)) );
+	assert( (!p.repeatedNumbers(m_empty)) );
+	assert( (!p.repeatedNumbers(m_smallRange)) );
+	assert( (!p.repeatedNumbers(m_largeRange)) );
 
-		for (int j = i + 1; j < m_list.size(); j++)
-		{
-			assert(j == i);
-		}
+	// Number range test
+	assert( (p.lessOrGreaterThan(m_list, m_min, m_max)) );
+	assert( (!p.lessOrGreaterThan(m_invalid, m_min, m_max)) );
+	assert( (!p.lessOrGreaterThan(m_empty, m_min, m_max)) );
+	assert( (!p.lessOrGreaterThan(m_smallRange, m_min, m_max)) );
+	assert( (!p.lessOrGreaterThan(m_largeRange, m_min, m_max)) );
 
+	std::cout << "All tests Passed!" << std::endl;
 
-		cin.get();
-	}
-}
+	system("Pause");
+}*/
