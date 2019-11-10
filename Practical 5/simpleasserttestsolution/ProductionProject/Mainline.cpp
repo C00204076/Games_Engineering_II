@@ -41,6 +41,29 @@ int main()
 	assert( (p.lessOrGreaterThan(m_smallRange, m_min, m_max)) );
 	assert( (p.lessOrGreaterThan(m_largeRange, m_min, m_max)) );
 
+	
+	//Control flow
+	assert( (p.controlMax(m_list, m_maxSize)) );
+	assert( (!p.controlMax(m_invalid, m_maxSize)) );
+	assert( (!p.controlMax(m_empty, m_maxSize)) );
+	assert( (!p.controlMax(m_smallRange, m_maxSize)) );
+	assert( (!p.controlMax(m_largeRange, m_maxSize)) );
+
+	// Repeated numbers test
+	assert( (p.controlRepeated(m_list)) );
+	assert( (p.controlRepeated(m_invalid)) );
+	assert( (p.controlRepeated(m_empty)) );
+	assert( (p.controlRepeated(m_smallRange)) );
+	assert( (p.controlRepeated(m_largeRange)) );
+
+	// Number range test
+	assert( (p.controlLessOrGreater(m_list, m_min, m_max)) );
+	assert( (!p.controlLessOrGreater(m_invalid, m_min, m_max)) );
+	assert( (!p.controlLessOrGreater(m_empty, m_min, m_max)) );
+	assert( (p.controlLessOrGreater(m_smallRange, m_min, m_max)) );
+	assert( (p.controlLessOrGreater(m_largeRange, m_min, m_max)) );
+
+	
 	std::cout << "All tests passed!" << std::endl;
 
 	system("Pause");
