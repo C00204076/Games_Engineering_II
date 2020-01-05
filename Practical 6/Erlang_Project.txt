@@ -1,0 +1,12 @@
+Erlang:
+Have a list of players and match them.
+Find list of player that match achievements.
+
+Due: 12th December morning(what is submitted that morning)
+
+Examples to help
+C intergate:
+http://erlang.org/doc/tutorial/example.html
+
+Example using Records:
+https://bitbucket.org/MuddyGames/games-engineering-ii-erlang/src/master/
