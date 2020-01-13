@@ -1,6 +1,6 @@
 public class BurgerJoint 
 {
-	static Burger burger;
+	static Burger[] burger = new Burger[1];
 	static int buf;
 	static int p = 0;
 	static int c = 0;
@@ -19,8 +19,9 @@ public class BurgerJoint
 				a = (int)Math.random() * 100;
 				System.out.println("Making a Burger: " + p);
 				buf = a;
+				
 				p = p + 1;
-				burger = new Burger(p);
+				//burger[p] = new Burger();
 			}
 			System.out.println("Finished Making Burgers");
 		}
@@ -34,14 +35,14 @@ public class BurgerJoint
 			System.out.println("Consumer Starting");
 			while(c < n)
 			{
-				while(burger.numSlots <= c)
+				while(p <= c)
 				{
 					//System.out.println("Starving waiting on a burger!");
 				}
 				System.out.println("Eating Burger: " + c);
 				b = buf;
 				c = c + 1;
-				
+				//burger.buffer[c] = 0;
 			}
 			
 			System.out.println("Finished Making Burgers");
@@ -51,19 +52,19 @@ public class BurgerJoint
 	
 	public static class Burger extends Thread
 	{
-		protected int numSlots;
-		private int[] buffer;
+		/*protected int numSlots;
+		public int[] buffer;
 		
-		public Burger(int numSlots)
+		public Burger()
 		{
-			if(numSlots <= 0)
+			/*if(numSlots <= 0)
 			{
 				throw new IllegalArgumentException("numSlots <= 0");
 			}
 			
 			this.numSlots = numSlots;
 			buffer = new int[numSlots];
-		}
+		}*/
 		
 	}
 	
