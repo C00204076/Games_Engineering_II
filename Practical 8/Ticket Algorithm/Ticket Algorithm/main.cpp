@@ -12,6 +12,15 @@
 #include <mutex>
 #include <sstream>
 
+const int n = 10;
+std::atomic_int _number;
+std::atomic_int _next;
+std::atomic_int _turn[n];
+int numThreads;
+std::mutex coutMutex;
+
+std::ostringstream data;
+
 void ticket()
 {
 	//Coarse-grained
@@ -60,15 +69,57 @@ void ticket()
 	
 	}*/
 
+	// Ticket 
+	int i = numThreads++;  //Intentional post-increment
+
+	coutMutex.lock();
+	std::cout << "Thread " << i << " reporting in." << std::endl;
+	coutMutex.unlock();
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 500 + 500));
+
+	while (true)
+	{
+		//Take a ticket
+		_turn[i] = _number.fetch_add(1);
+
+		//Using a mutex for output so that threads don't uppercut each other on the console.
+		coutMutex.lock();
+		std::cout << "t" << i << "\tturn: " << _turn[i] << std::endl;
+		coutMutex.unlock();
+
+		//Slow down the program so that we can read the console.
+		std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 500 + 500));
+
+		while (_turn[i] != _next)
+		{
+			continue;
+		}
+
+		coutMutex.lock();
+		std::cout << "t" << i << "\t+CS" << std::endl;
+		coutMutex.unlock();
+
+		//critical section
+		data << " data_t" << i;
+
+		//exit protocol
+		_next += 1;
+
+		coutMutex.lock();
+		std::cout << data.str() << std::endl;
+		std::cout << "t" << i << "\tnext = " << _next << std::endl;
+		coutMutex.unlock();
+	}
 }
 
 //
 int main()
 {
 
-	/*srand(time(NULL));
+	srand(time(NULL));
 
-    data = ostringstream();
+    data = std::ostringstream();
 
     numThreads = 0;
     _number = 1;
@@ -78,18 +129,18 @@ int main()
         _turn[i] = 0;
     }
 
-    thread t1 = thread(func);
-    thread t2 = thread(func);
-    //thread t3 = thread(func);  //Add as many threads as you like
-    //thread t4 = thread(func);
-    //thread t5 = thread(func);
+    std::thread t1 = std::thread(ticket);
+    std::thread t2 = std::thread(ticket);
+    std::thread t3 = std::thread(ticket);  //Add as many threads as you like
+    //std::thread t4 = std::thread(ticket);
+    //std::thread t5 = std::thread(ticket);
 
     t1.join();
     t2.join();
-    //t3.join();
+    t3.join();
     //t4.join();
     //t5.join();
-*/
+
 
 	return 0;
 }
