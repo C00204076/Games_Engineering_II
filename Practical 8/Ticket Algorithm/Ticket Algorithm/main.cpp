@@ -12,14 +12,14 @@
 #include <mutex>
 #include <sstream>
 
-const int n = 10;
-std::atomic_int _number;
-std::atomic_int _next;
-std::atomic_int _turn[n];
-int numThreads;
-std::mutex coutMutex;
+const int m_n = 10;
+std::atomic_int m_number;
+std::atomic_int m_next;
+std::atomic_int m_turn[m_n];
+int m_numThreads;
+std::mutex m_coutMutex;
 
-std::ostringstream data;
+std::ostringstream m_data;
 
 void ticket()
 {
@@ -70,46 +70,46 @@ void ticket()
 	}*/
 
 	// Ticket 
-	int i = numThreads++;  //Intentional post-increment
+	int i = m_numThreads++;  //Intentional post-increment
 
-	coutMutex.lock();
+	m_coutMutex.lock();
 	std::cout << "Thread " << i << " reporting in." << std::endl;
-	coutMutex.unlock();
+	m_coutMutex.unlock();
 
 	std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 500 + 500));
 
 	while (true)
 	{
 		//Take a ticket
-		_turn[i] = _number.fetch_add(1);
+		m_turn[i] = m_number.fetch_add(1);
 
 		//Using a mutex for output so that threads don't uppercut each other on the console.
-		coutMutex.lock();
-		std::cout << "t" << i << "\tturn: " << _turn[i] << std::endl;
-		coutMutex.unlock();
+		m_coutMutex.lock();
+		std::cout << "t" << i << "\tturn: " << m_turn[i] << std::endl;
+		m_coutMutex.unlock();
 
 		//Slow down the program so that we can read the console.
 		std::this_thread::sleep_for(std::chrono::milliseconds(rand() % 500 + 500));
 
-		while (_turn[i] != _next)
+		while (m_turn[i] != m_next)
 		{
 			continue;
 		}
 
-		coutMutex.lock();
+		m_coutMutex.lock();
 		std::cout << "t" << i << "\t+CS" << std::endl;
-		coutMutex.unlock();
+		m_coutMutex.unlock();
 
 		//critical section
-		data << " data_t" << i;
+		m_data << " data_t" << i;
 
 		//exit protocol
-		_next += 1;
+		m_next += 1;
 
-		coutMutex.lock();
-		std::cout << data.str() << std::endl;
-		std::cout << "t" << i << "\tnext = " << _next << std::endl;
-		coutMutex.unlock();
+		m_coutMutex.lock();
+		std::cout << m_data.str() << std::endl;
+		std::cout << "t" << i << "\tnext = " << m_next << std::endl;
+		m_coutMutex.unlock();
 	}
 }
 
@@ -119,27 +119,28 @@ int main()
 
 	srand(time(NULL));
 
-    data = std::ostringstream();
+    m_data = std::ostringstream();
 
-    numThreads = 0;
-    _number = 1;
-    _next = 1;
-    for (int i = 0; i < n; i++)
+    m_numThreads = 0;
+    m_number = 1;
+    m_next = 1;
+
+    for (int i = 0; i < m_n; i++)
     {
-        _turn[i] = 0;
+        m_turn[i] = 0;
     }
 
-    std::thread t1 = std::thread(ticket);
-    std::thread t2 = std::thread(ticket);
-    std::thread t3 = std::thread(ticket);  //Add as many threads as you like
-    //std::thread t4 = std::thread(ticket);
-    //std::thread t5 = std::thread(ticket);
+    std::thread m_t1 = std::thread(ticket);
+    std::thread m_t2 = std::thread(ticket);
+    std::thread m_t3 = std::thread(ticket);  //Add as many threads as you like
+    //std::thread m_t4 = std::thread(ticket);
+    //std::thread m_t5 = std::thread(ticket);
 
-    t1.join();
-    t2.join();
-    t3.join();
-    //t4.join();
-    //t5.join();
+    m_t1.join();
+    m_t2.join();
+    m_t3.join();
+    //m_t4.join();
+    //m_t5.join();
 
 
 	return 0;
